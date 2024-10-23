@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "atividade-api-restful": "file:",
     "cors": "^2.8.5",
     "express": "^4.21.1"
   }
