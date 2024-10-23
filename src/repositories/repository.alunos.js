@@ -1,26 +1,22 @@
-const {v4: uuidv4} = require('uuid')
+import { v4 as uuidv4 } from "uuid";
 
 const alunos = [];
 
-//criar
-function create(descricao, titulo, dataCadastro, telefone, empresa) {
-    const vaga = {
-        id: uuidv4(),
-        nome,
-        email,
-        nome_curso,
-    }
+// Criar
+export function create({ nome, email, nome_curso }) {
+  // Usando exportação nomeada
+  const aluno = {
+    id: uuidv4(),
+    nome,
+    email,
+    nome_curso,
+  };
 
-    alunos.push(alunos)
-    return alunos
+  alunos.push(aluno);
+  return aluno;
 }
 
-//listar
-function findAll(){
-    return alunos
-}
-
-module.exports = {
-    create,
-    findAll
+// Listar
+export function findAll() {
+  return alunos;
 }
