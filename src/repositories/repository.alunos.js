@@ -29,4 +29,21 @@ function deleteById(id) {
   return null; 
 }
 
-export { create, findAll, deleteById };
+//Editar
+const update = (id, {nome, email, nome_curso}) => {
+  const index = alunos.findIndex(aluno => aluno.id === id);
+  if (index === -1) {
+    return null
+  }
+  alunos[index] = {
+    id,
+    nome,
+    email,
+    nome_curso,
+  };
+
+  return alunos[index];
+
+}
+
+export { create, findAll, deleteById, update };
