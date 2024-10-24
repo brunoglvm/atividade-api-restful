@@ -3,20 +3,20 @@ import { v4 as uuidv4 } from "uuid";
 const alunos = [];
 
 // Criar
-export function create({ nome, email, nome_curso }) {
-  // Usando exportação nomeada
-  const aluno = {
+function create(aluno) {
+  const newAluno = {
     id: uuidv4(),
-    nome,
-    email,
-    nome_curso,
+    nome: aluno.nome,
+    email: aluno.email,
+    nome_curso: aluno.nome_curso,
   };
-
-  alunos.push(aluno);
-  return aluno;
+  alunos.push(newAluno);
+  return newAluno;
 }
 
 // Listar
-export function findAll() {
+function findAll() {
   return alunos;
 }
+
+export { create, findAll };
