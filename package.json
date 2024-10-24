@@ -13,6 +13,7 @@
     "atividade-api-restful": "file:",
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "helmet": "^8.0.0",
     "uuid": "^10.0.0"
   }
 }
