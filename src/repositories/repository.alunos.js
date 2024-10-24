@@ -19,4 +19,14 @@ function findAll() {
   return alunos;
 }
 
-export { create, findAll };
+// Deletar
+function deleteById(id) {
+  const index = alunos.findIndex(aluno => aluno.id === id);
+  if (index !== -1) {
+    const deletedAluno = alunos.splice(index, 1); 
+    return deletedAluno[0]; 
+  }
+  return null; 
+}
+
+export { create, findAll, deleteById };
