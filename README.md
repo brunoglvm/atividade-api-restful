@@ -6,4 +6,4 @@
     <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Badge Express.js">
 </div>
 
-Este projeto é uma API RESTful desenvolvida com **Express**, focada na entidade Aluno. A API permite realizar todas as operações de **CRUD**, com os dados sendo mantidos em memória durante a execução do projeto.
+Projeto desenvolvido com **Express**, voltado para a gestão de alunos. A API permite realizar todas as operações de **CRUD**, com os dados sendo mantidos em memória durante a execução do projeto.
