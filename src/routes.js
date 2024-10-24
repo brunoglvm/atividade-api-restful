@@ -5,5 +5,6 @@ const router = Router();
 
 router.get("/alunos", controllerAluno.Listar);
 router.post("/alunos", controllerAluno.Adicionar);
+router.put("/alunos", controllerAluno.Editar)
 
 export default router;
