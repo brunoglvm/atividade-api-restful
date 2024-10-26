@@ -19,21 +19,11 @@ function findAll() {
   return alunos;
 }
 
-// Deletar
-function deleteById(id) {
-  const index = alunos.findIndex(aluno => aluno.id === id);
-  if (index !== -1) {
-    const deletedAluno = alunos.splice(index, 1); 
-    return deletedAluno[0]; 
-  }
-  return null; 
-}
-
-//Editar
-const update = (id, {nome, email, nome_curso}) => {
-  const index = alunos.findIndex(aluno => aluno.id === id);
+// Editar
+const update = (id, { nome, email, nome_curso }) => {
+  const index = alunos.findIndex((aluno) => aluno.id === id);
   if (index === -1) {
-    return null
+    return null;
   }
   alunos[index] = {
     id,
@@ -43,7 +33,16 @@ const update = (id, {nome, email, nome_curso}) => {
   };
 
   return alunos[index];
+};
 
+// Deletar
+function deleteById(id) {
+  const index = alunos.findIndex((aluno) => aluno.id === id);
+  if (index !== -1) {
+    const deletedAluno = alunos.splice(index, 1);
+    return deletedAluno[0];
+  }
+  return null;
 }
 
-export { create, findAll, deleteById, update };
+export { create, findAll, update, deleteById };
