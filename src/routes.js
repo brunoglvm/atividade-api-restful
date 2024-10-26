@@ -3,8 +3,8 @@ import controllerAluno from "./controllers/controller.aluno.js";
 
 const router = Router();
 
-router.get("/alunos", controllerAluno.Listar);
-router.post("/alunos", controllerAluno.Adicionar);
-router.put("/alunos/:id", controllerAluno.Editar);
+router.get("/alunos", controllerAluno.toList);
+router.post("/alunos", controllerAluno.toAdd);
+router.put("/alunos/:id", controllerAluno.toUpdate);
 
 export default router;

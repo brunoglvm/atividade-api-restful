@@ -1,6 +1,6 @@
 import { create, findAll, update } from "../repositories/repository.alunos.js";
 
-const Adicionar = (req, res) => {
+const toAdd = (req, res) => {
   const {nome, email, nome_curso} = req.body;
 
   if(!nome || !email || !nome_curso){
@@ -17,7 +17,7 @@ const Adicionar = (req, res) => {
   }
 };
 
-const Listar = (req, res) => {
+const toList = (req, res) => {
   try {
     const alunos = findAll();
     res.status(200).json(alunos);
@@ -28,7 +28,7 @@ const Listar = (req, res) => {
   }
 };
 
-const Editar = (req, res) => {
+const toUpdate = (req, res) => {
   const {id} = req.params;
   const {nome, email, nome_curso} = req.body;
 
@@ -48,4 +48,4 @@ const Editar = (req, res) => {
   
 };
 
-export default { Listar, Adicionar, Editar };
+export default { toList, toAdd, toUpdate };
