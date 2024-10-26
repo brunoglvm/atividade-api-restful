@@ -1,10 +1,14 @@
 import { create, findAll, update } from "../repositories/repository.alunos.js";
 
 const Adicionar = (req, res) => {
-  const aluno = req.body;
+  const {nome, email, nome_curso} = req.body;
+
+  if(!nome || !email || !nome_curso){
+    res.status(400).json({message: "Algo de errado, não está certo!"})
+  }
 
   try {
-    const novoAluno = create(aluno);
+    const novoAluno = create({nome, email, nome_curso});
     res.status(201).json(novoAluno);
   } catch (error) {
     res
@@ -27,6 +31,10 @@ const Listar = (req, res) => {
 const Editar = (req, res) => {
   const {id} = req.params;
   const {nome, email, nome_curso} = req.body;
+
+  if(!nome || !email || !nome_curso){
+    res.status(400).json({message: "Algo de errado, não está certo!"})
+  }
 
   try {
     const aluno = update(id, {nome, email, nome_curso})
