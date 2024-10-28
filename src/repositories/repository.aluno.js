@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 const alunos = [];
 
 // Criar
-function create(aluno) {
+const create = (aluno) => {
   const newAluno = {
     id: uuidv4(),
     nome: aluno.nome,
@@ -12,12 +12,16 @@ function create(aluno) {
   };
   alunos.push(newAluno);
   return newAluno;
-}
+};
 
 // Listar
-function findAll() {
+const findAll = () => {
   return alunos;
-}
+};
+
+const findById = (id) => {
+  return alunos.find((aluno) => aluno.id === id) || null;
+};
 
 // Editar
 const update = (id, { nome, email, nome_curso }) => {
@@ -36,13 +40,13 @@ const update = (id, { nome, email, nome_curso }) => {
 };
 
 // Deletar
-function deleteById(id) {
+const deleteById = (id) => {
   const index = alunos.findIndex((aluno) => aluno.id === id);
   if (index !== -1) {
     const deletedAluno = alunos.splice(index, 1);
     return deletedAluno[0];
   }
   return null;
-}
+};
 
-export { create, findAll, update, deleteById };
+export { create, findAll, findById, update, deleteById };
