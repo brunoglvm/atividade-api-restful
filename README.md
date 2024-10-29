@@ -53,7 +53,7 @@ yarn start
 
 ### Criar Aluno
 
-`POST /alunos`
+`POST /alunos`    
 Cria um novo aluno.
 
 **Corpo da Requisição:**
@@ -70,17 +70,17 @@ Cria um novo aluno.
 
 ### **Listar Alunos**
 
-`GET /alunos`
+`GET /alunos`    
 Retorna todos os alunos cadastrados.
 
-`GET /alunos/:id`
+`GET /alunos/:id`    
 Retorna um aluno específico.
 
 ---
 
 ### **Atualizar Aluno**
 
-`PUT /alunos/:id`
+`PUT /alunos/:id`    
 Atualiza as informações de um aluno existente.
 
 **Corpo da Requisição:**
@@ -97,5 +97,5 @@ Atualiza as informações de um aluno existente.
 
 ### **Deletar Aluno**
 
-`DELETE /alunos/:id`
+`DELETE /alunos/:id`    
 Remove um aluno pelo ID.
