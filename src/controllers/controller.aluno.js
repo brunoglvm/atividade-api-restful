@@ -3,6 +3,7 @@ import {
   findAll,
   findById,
   update,
+  deleteById,
 } from "../repositories/repository.aluno.js";
 
 const toAdd = (req, res) => {
@@ -33,6 +34,9 @@ const toList = (req, res) => {
     }
 
     const alunos = findAll();
+    if (alunos.length === 0) {
+      return res.status(200).json({ message: "Nenhum aluno cadastrado." });
+    }
     res.status(200).json(alunos);
   } catch (error) {
     res.status(500).json({ message: "Erro ao listar alunos" });
@@ -58,4 +62,4 @@ const toUpdate = (req, res) => {
   }
 };
 
-export default { toList, toAdd, toUpdate };
+export default { toAdd, toList, toUpdate, toDelete };

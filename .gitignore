@@ -1,2 +1,3 @@
 # Dependências
 node_modules/
+*.test.*
