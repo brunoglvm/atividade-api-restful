@@ -7,8 +7,8 @@ class AlunoRepository {
 
   // Criar
   create(aluno) {
-    const emailExistente = this.alunos.find((a) => a.email === aluno.email);
-    if (emailExistente) {
+    const existingEmail = this.alunos.find((a) => a.email === aluno.email);
+    if (existingEmail) {
       throw new Error("Email já cadastrado");
     }
 
