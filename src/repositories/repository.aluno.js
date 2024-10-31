@@ -1,52 +1,61 @@
 import { v4 as uuidv4 } from "uuid";
 
-const alunos = [];
-
-// Criar
-const create = (aluno) => {
-  const newAluno = {
-    id: uuidv4(),
-    nome: aluno.nome,
-    email: aluno.email,
-    nome_curso: aluno.nome_curso,
-  };
-  alunos.push(newAluno);
-  return newAluno;
-};
-
-// Listar
-const findAll = () => {
-  return alunos;
-};
-
-const findById = (id) => {
-  return alunos.find((aluno) => aluno.id === id) || null;
-};
-
-// Editar
-const update = (id, { nome, email, nome_curso }) => {
-  const index = alunos.findIndex((aluno) => aluno.id === id);
-  if (index === -1) {
-    return null;
+class AlunoRepository {
+  constructor() {
+    this.alunos = [];
   }
-  alunos[index] = {
-    id,
-    nome,
-    email,
-    nome_curso,
-  };
 
-  return alunos[index];
-};
+  // Criar
+  create(aluno) {
+    const emailExistente = this.alunos.find((a) => a.email === aluno.email);
+    if (emailExistente) {
+      throw new Error("Email já cadastrado");
+    }
 
-// Deletar
-const deleteById = (id) => {
-  const index = alunos.findIndex((aluno) => aluno.id === id);
-  if (index !== -1) {
-    const deletedAluno = alunos.splice(index, 1);
-    return deletedAluno[0];
+    const newAluno = {
+      id: uuidv4(),
+      nome: aluno.nome,
+      email: aluno.email,
+      nome_curso: aluno.nome_curso,
+    };
+    this.alunos.push(newAluno);
+    return newAluno;
   }
-  return null;
-};
 
-export { create, findAll, findById, update, deleteById };
+  // Listar todos
+  findAll() {
+    return this.alunos;
+  }
+
+  // Listar por ID
+  findById(id) {
+    return this.alunos.find((aluno) => aluno.id === id) || null;
+  }
+
+  // Editar
+  update(id, { nome, email, nome_curso }) {
+    const index = this.alunos.findIndex((aluno) => aluno.id === id);
+    if (index === -1) {
+      return null;
+    }
+    this.alunos[index] = {
+      id,
+      nome,
+      email,
+      nome_curso,
+    };
+    return this.alunos[index];
+  }
+
+  // Deletar
+  deleteById(id) {
+    const index = this.alunos.findIndex((aluno) => aluno.id === id);
+    if (index === -1) {
+      return null;
+    }
+    const [deletedAluno] = this.alunos.splice(index, 1);
+    return deletedAluno;
+  }
+}
+
+export default new AlunoRepository();
