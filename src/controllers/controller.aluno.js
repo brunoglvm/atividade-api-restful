@@ -66,6 +66,22 @@ class AlunoController {
       res.status(500).json({ message: "Erro ao atualizar aluno" });
     }
   }
+
+  // Deleta os dados de um aluno existente com base no ID fornecido
+  static toDelete(req, res) {
+    const { id } = req.params;
+    if (id) {
+      const alunoDeletado = AlunoRepository.deleteById(id);
+      if (alunoDeletado) {
+        res.status(200).json({ message: "Aluno deletado com sucesso." });
+      } else {
+        res.status(404).json({ message: "Aluno não encontrado." });
+      }
+    } else {
+      res.status(400).json({ message: "ID do aluno não fornecido." });
+    }
+  }
 }
+
 
 export default AlunoController;
